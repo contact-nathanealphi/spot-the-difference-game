@@ -1,0 +1,106 @@
+/* Spot the Difference — warm paper-and-ink styling for the page chrome.
+   The scenes themselves are painted on canvas (see src/scenes.js). */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #2b2118;
+  color: #2b2118;
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  background: #f6dfba;
+  border-bottom: 4px solid #c94f4f;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { font-size: 38px; }
+.brand h1 { margin: 0; font-size: 26px; letter-spacing: 0.5px; }
+.tagline { margin: 2px 0 0; font-size: 13px; color: #6a5232; }
+.stats { display: flex; gap: 10px; align-items: center; }
+.stat {
+  background: #fff8e7;
+  border: 2px solid #d9c49a;
+  border-radius: 10px;
+  padding: 6px 12px;
+  text-align: center;
+  min-width: 76px;
+}
+.stat .label { display: block; font-size: 10px; letter-spacing: 1.5px; color: #8a6a3a; }
+.stat .value { display: block; font-size: 20px; font-weight: bold; }
+.stat.combo { border: none; background: transparent; min-width: 0; padding: 0; }
+.stat.combo .value { color: #ffd93b; font-size: 18px; text-shadow: 0 1px 2px #000; }
+#timer.danger { color: #c93c3c; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0.45; } }
+
+.levelbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  background: #efe6d0;
+  border-bottom: 2px solid #d9c49a;
+  flex-wrap: wrap;
+}
+.level-info { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.level-info strong { font-size: 17px; }
+.level-info span { font-size: 14px; color: #6a5232; }
+.dots { display: inline-flex; gap: 6px; }
+.dot {
+  display: inline-block;
+  width: 24px; height: 24px; line-height: 24px;
+  text-align: center; border-radius: 50%;
+  background: #d9c49a; color: #6a5232; font-size: 13px; font-weight: bold;
+}
+.dot.now { background: #c94f4f; color: #fff; }
+.dot.done { background: #2f7a4a; color: #fff; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn {
+  font-family: inherit;
+  font-size: 14px; font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 9px;
+  border: 2px solid #8a6a3a;
+  background: #fff8e7;
+  color: #2b2118;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled) { background: #ffe9b0; }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.hint { border-color: #b8860b; background: #ffe9a8; }
+.btn.primary { background: #2f7a4a; border-color: #1e522e; color: #fff; }
+
+.board-wrap { padding: 12px 20px 4px; text-align: center; }
+#board {
+  max-width: 1180px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  cursor: crosshair;
+  background: #efe6d0;
+}
+.howto { color: #e8dcc0; font-size: 14px; margin: 8px 0 4px; }
+.howto b { color: #ffd93b; }
+
+.found-list {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 20px 16px;
+}
+.found-title { color: #e8dcc0; font-weight: bold; font-size: 14px; padding-top: 4px; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 12px;
+  background: #4a3a28;
+  color: #c9b896;
+  border: 1px solid #6a5232;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+.chip.found { background: #2f7a4a; border-color: #7ac74f; color: #eaffea; }

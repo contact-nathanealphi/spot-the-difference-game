@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spot the Difference — Three Little Mysteries</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">🔍</span>
+    <div>
+      <h1>Spot the Difference</h1>
+      <p class="tagline">Three little mysteries · two pictures · one sharp eye</p>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="label">FOUND</span><span class="value" id="foundCount">0 / 12</span></div>
+    <div class="stat"><span class="label">LEFT</span><span class="value" id="remainCount">12</span></div>
+    <div class="stat"><span class="label">TIME</span><span class="value" id="timer">4:00</span></div>
+    <div class="stat"><span class="label">SCORE</span><span class="value" id="score">0</span></div>
+    <div class="stat combo"><span class="value" id="combo"></span></div>
+  </div>
+</header>
+
+<section class="levelbar">
+  <div class="level-info">
+    <strong id="levelName">Level 1 — Cozy Living Room</strong>
+    <span id="levelBlurb">A quiet afternoon at home.</span>
+    <span id="levelDots" class="dots"></span>
+  </div>
+  <div class="actions">
+    <button id="hintBtn" class="btn hint">💡 Hint (<span id="hintsLeft">3</span> left)</button>
+    <button id="restartBtn" class="btn">↻ Restart level</button>
+    <button id="soundBtn" class="btn">🔊 Sound on</button>
+    <button id="nextBtn" class="btn primary" style="display:none">Next level →</button>
+    <button id="retryBtn" class="btn primary" style="display:none">Try again</button>
+    <button id="againBtn" class="btn primary" style="display:none">Play again</button>
+  </div>
+</section>
+
+<main class="board-wrap">
+  <canvas id="board" width="1160" height="470"></canvas>
+  <p class="howto">Click a difference in <b>either</b> picture to circle it in both. A wrong click costs 5 seconds and 10 points. Find them all before the clock runs out! Keys: <b>H</b> hint · <b>R</b> restart · <b>N</b> next level.</p>
+</main>
+
+<footer class="found-list">
+  <span class="found-title">Found so far:</span>
+  <div id="chips" class="chips"></div>
+</footer>
+
+<script type="module" src="src/game.js"></script>
+</body>
+</html>
